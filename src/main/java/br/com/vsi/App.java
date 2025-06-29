@@ -11,6 +11,6 @@ public class App
     public static void main( String[] args )
     {
         Features features = new Features();
-        System.out.println(features.getCombinacao("teste"));
+        features.gerarCombinacoes("abcde");
     }
 }
