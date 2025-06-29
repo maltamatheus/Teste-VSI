@@ -1,8 +1,12 @@
 package br.com.vsi;
 
-import junit.framework.Test;
+import br.com.vsi.utils.Features;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+import org.junit.Assert;
+import org.junit.Test;
+
+import java.util.List;
 
 /**
  * Unit test for simple App.
@@ -10,29 +14,27 @@ import junit.framework.TestSuite;
 public class AppTest 
     extends TestCase
 {
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
-    {
-        super( testName );
+    Features features = new Features();
+    @Test
+    public void testaProgramaValorMaiorQue5(){
+        features.gerarCombinacoes("abcdef");
     }
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
+    @Test
+    public void testaProgramaValorNumerico(){
+        features.gerarCombinacoes("abcd0");
     }
 
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
+    @Test
+    public void testaProgramaValorNullOuVazio(){
+        features.gerarCombinacoes("  ");
+    }
+
+    @Test
+    public void testeGeraCombinacao(){
+        List<String> combinacoes = features.gerarCombinacoes("abcde");
+
+        combinacoes.forEach(c -> System.out.println(c));
+        System.out.println("Total de combinações possíveis é: " + combinacoes.size());
     }
 }
